@@ -84,3 +84,11 @@ main {
     color: black;
     background-color: #95a5a6 !important;
 }
+
+#title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: red;
+}
