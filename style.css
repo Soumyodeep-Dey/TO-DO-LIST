@@ -110,37 +110,42 @@ main {
 
 /* Style for the edit button */
 .edit-btn {
-    background: none;
+    background-color: #007bff; /* Blue background */
     border: none;
-    cursor: pointer;
-    color: #007bff; /* Use a softer blue color */
+    color: white; /* White text */
     font-size: 14px;
-    padding: 2px 5px; /* Add padding for better clickability */
-    transition: color 0.3s ease; /* Add hover effect */
+    padding: 5px 10px; /* Add padding for button-like appearance */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
 }
 
 .edit-btn:hover {
-    color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Style for the delete button */
 .delete-btn {
-    background: none;
+    background-color: #dc3545; /* Red background */
     border: none;
-    cursor: pointer;
-    color: #dc3545; /* Use a softer red color */
+    color: white; /* White text */
     font-size: 14px;
-    padding: 2px 5px; /* Add padding for better clickability */
-    transition: color 0.3s ease; /* Add hover effect */
+    padding: 5px 10px; /* Add padding for button-like appearance */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
 }
 
 .delete-btn:hover {
-    color: #a71d2a; /* Darker red on hover */
+    background-color: #a71d2a; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Style for the separator */
 .button-separator {
     margin: 0 5px; /* Add spacing around the separator */
-    color: #6c757d; /* Use a neutral gray color */
+    color: #6c757d; /* Neutral gray color */
     font-size: 14px;
+    font-weight: bold; /* Make the separator more prominent */
 }
