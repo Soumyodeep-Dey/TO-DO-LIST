@@ -28,14 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             li.remove();
         });
 
-        li.appendChild(deleteBtn);
-        toDoBox.appendChild(li);
-
-        // Apply "done" class if task is completed
-        if (todo.completed) {
-            li.classList.add('done');
-        }
-
         // Add "edit" functionality
         const editBtn = document.createElement("i");
         editBtn.style.color = 'blue'; // Corrected syntax
@@ -49,6 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
+        li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
+        toDoBox.appendChild(li);
+
+        // Apply "done" class if task is completed
+        if (todo.completed) {
+            li.classList.add('done');
+        }
     };
 
     // Display existing todos on page load
