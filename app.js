@@ -35,6 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (todo.completed) {
             li.classList.add('done');
         }
+
+        // Add "edit" functionality
+        const editBtn = document.createElement("i");
+        editBtn.style.color = 'blue'; // Corrected syntax
+        editBtn.classList.add('fas', 'fa-edit');
+        editBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent triggering the 'done' toggle    
+            const newText = prompt("Edit the task:", todo.text);
+            if (newText !== null) {
+                todo.text = newText;
+                save();
+            }
+        });
+        
     };
 
     // Display existing todos on page load
