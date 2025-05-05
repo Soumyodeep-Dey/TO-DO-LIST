@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const li = document.createElement("li");
         li.textContent = todo.text;
 
+        // Create a container for buttons
+        const buttonContainer = document.createElement("div");
+        buttonContainer.style.display = "flex";
+        buttonContainer.style.gap = "10px";
+        buttonContainer.style.marginLeft = "auto";
+
         // Add "done" toggle functionality
         li.addEventListener('click', () => {
             todo.completed = !todo.completed;
@@ -41,8 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        li.appendChild(editBtn);
-        li.appendChild(deleteBtn);
+        buttonContainer.appendChild(editBtn);
+        buttonContainer.appendChild(deleteBtn);
+        li.appendChild(buttonContainer);
         toDoBox.appendChild(li);
 
         // Apply "done" class if task is completed
