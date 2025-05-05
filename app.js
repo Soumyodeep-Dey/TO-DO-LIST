@@ -8,27 +8,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display a task
     const display = (todo) => {
         const li = document.createElement("li");
-        li.textContent = todo.text;
+        li.style.display = "flex";
+        li.style.alignItems = "center";
+        li.style.justifyContent = "space-between";
+        
+        const textSpan = document.createElement("span");
+        textSpan.textContent = todo.text;
+        li.appendChild(textSpan);
 
         // Create a container for buttons
         const buttonContainer = document.createElement("div");
         buttonContainer.style.display = "flex";
         buttonContainer.style.gap = "10px";
-        buttonContainer.style.marginLeft = "auto";
 
         // Add "done" toggle functionality
         li.addEventListener('click', () => {
             todo.completed = !todo.completed;
             li.classList.toggle('done', todo.completed);
-            save(); // Save updated state
+            save();
         });
 
         // Add delete functionality
         const deleteBtn = document.createElement("i");
-        deleteBtn.style.color = 'red'; // Corrected syntax
+        deleteBtn.style.color = 'red';
         deleteBtn.classList.add('fas', 'fa-trash');
         deleteBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent triggering the 'done' toggle
+            e.stopPropagation();
             todos = todos.filter(t => t.id !== todo.id);
             save();
             li.remove();
@@ -36,17 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add "edit" functionality
         const editBtn = document.createElement("i");
-        editBtn.style.color = 'blue'; // Corrected syntax
+        editBtn.style.color = 'blue';
         editBtn.classList.add('fas', 'fa-edit');
         editBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent triggering the 'done' toggle    
+            e.stopPropagation();
             const newText = prompt("Edit the task:", todo.text);
-            if (newText !== null) {
+            if (newText !== null && newText.trim() !== "") {
                 todo.text = newText;
+                textSpan.textContent = newText;
                 save();
             }
         });
-        
+
         buttonContainer.appendChild(editBtn);
         buttonContainer.appendChild(deleteBtn);
         li.appendChild(buttonContainer);
