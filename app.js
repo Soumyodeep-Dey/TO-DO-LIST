@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         li.style.display = "flex";
         li.style.alignItems = "center";
         li.style.justifyContent = "space-between";
-        
+
         const textSpan = document.createElement("span");
         textSpan.textContent = todo.text;
         li.appendChild(textSpan);
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.innerHTML = "Delete";
         deleteBtn.classList.add("delete-btn");
         deleteBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent the click event on <li>
             todos = todos.filter((t) => t.id !== todo.id);
             save();
             li.remove();
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editBtn.innerHTML = "Edit";
         editBtn.classList.add("edit-btn");
         editBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent the click event on <li>
             const newText = prompt("Edit the task:", todo.text);
             if (newText !== null && newText.trim() !== "") {
                 todo.text = newText;
@@ -55,12 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonContainer.appendChild(separator);
         buttonContainer.appendChild(deleteBtn);
         li.appendChild(buttonContainer);
-        toDoBox.appendChild(li);
 
         // Apply "done" class if task is completed
         if (todo.completed) {
             li.classList.add('done');
         }
+
+        // Add toggle functionality for marking a task as completed
+        li.addEventListener("click", () => {
+            todo.completed = !todo.completed; // Toggle the completed status
+            li.classList.toggle("done"); // Toggle the "done" class
+            save(); // Save the updated tasks to localStorage
+        });
+
+        toDoBox.appendChild(li);
     };
 
     // Display existing todos on page load

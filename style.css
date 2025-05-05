@@ -87,10 +87,13 @@ main {
     top: 10px;
 }
 
+/* Style for completed tasks */
 .done {
-    text-decoration: line-through;
-    color: black;
-    background-color: #95a5a6 !important;
+    text-decoration: line-through; /* Strike-through text */
+    color: gray; /* Dim the text color */
+    background-color: #e0e0e0; /* Light gray background for completed tasks */
+    font-style: italic; /* Optional: make the text italic for emphasis */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for visual changes */
 }
 
 #title {
