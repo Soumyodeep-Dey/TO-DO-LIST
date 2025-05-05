@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create a container for buttons
         const buttonContainer = document.createElement("div");
         buttonContainer.style.display = "flex";
-        buttonContainer.style.gap = "10px";
+        buttonContainer.style.gap = "15px";
+        buttonContainer.style.padding = "5px";
 
         // Add "done" toggle functionality
         li.addEventListener('click', () => {
@@ -29,9 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Add delete functionality
-        const deleteBtn = document.createElement("i");
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+        deleteBtn.style.background = 'none';
+        deleteBtn.style.border = 'none';
+        deleteBtn.style.cursor = 'pointer';
         deleteBtn.style.color = 'red';
-        deleteBtn.classList.add('fas', 'fa-trash');
+        deleteBtn.style.fontSize = '16px';
         deleteBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             todos = todos.filter(t => t.id !== todo.id);
@@ -40,9 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Add "edit" functionality
-        const editBtn = document.createElement("i");
+        const editBtn = document.createElement("button");
+        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+        editBtn.style.background = 'none';
+        editBtn.style.border = 'none';
+        editBtn.style.cursor = 'pointer';
         editBtn.style.color = 'blue';
-        editBtn.classList.add('fas', 'fa-edit');
+        editBtn.style.fontSize = '16px';
         editBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             const newText = prompt("Edit the task:", todo.text);
