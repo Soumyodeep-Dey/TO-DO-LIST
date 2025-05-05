@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.innerHTML = "Delete";
         deleteBtn.classList.add("delete-btn");
         deleteBtn.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent the click event on <li>
+            e.stopPropagation();
             todos = todos.filter((t) => t.id !== todo.id);
             save();
             li.remove();
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editBtn.innerHTML = "Edit";
         editBtn.classList.add("edit-btn");
         editBtn.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent the click event on <li>
+            e.stopPropagation();
             const newText = prompt("Edit the task:", todo.text);
             if (newText !== null && newText.trim() !== "") {
                 todo.text = newText;
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Save tasks to localStorage
-    const save = () => {
+    function save() {
         localStorage.setItem('tasks', JSON.stringify(todos));
-    };
+    }
 });
