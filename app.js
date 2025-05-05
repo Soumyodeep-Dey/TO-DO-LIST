@@ -18,41 +18,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Create a container for buttons
         const buttonContainer = document.createElement("div");
-        buttonContainer.style.display = "flex";
-        buttonContainer.style.gap = "15px";
-        buttonContainer.style.padding = "5px";
-
-        // Add "done" toggle functionality
-        li.addEventListener('click', () => {
-            todo.completed = !todo.completed;
-            li.classList.toggle('done', todo.completed);
-            save();
-        });
+        buttonContainer.classList.add("button-container");
 
         // Add delete functionality
         const deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-        deleteBtn.style.background = 'none';
-        deleteBtn.style.border = 'none';
-        deleteBtn.style.cursor = 'pointer';
-        deleteBtn.style.color = 'red';
-        deleteBtn.style.fontSize = '16px';
-        deleteBtn.addEventListener('click', (e) => {
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            todos = todos.filter(t => t.id !== todo.id);
+            todos = todos.filter((t) => t.id !== todo.id);
             save();
             li.remove();
         });
 
         // Add "edit" functionality
         const editBtn = document.createElement("button");
-        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-        editBtn.style.background = 'none';
-        editBtn.style.border = 'none';
-        editBtn.style.cursor = 'pointer';
-        editBtn.style.color = 'blue';
-        editBtn.style.fontSize = '16px';
-        editBtn.addEventListener('click', (e) => {
+        editBtn.innerHTML = "Edit";
+        editBtn.classList.add("edit-btn");
+        editBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             const newText = prompt("Edit the task:", todo.text);
             if (newText !== null && newText.trim() !== "") {
@@ -62,7 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Add a separator between buttons
+        const separator = document.createElement("span");
+        separator.textContent = "|";
+        separator.classList.add("button-separator");
+
+        // Append buttons and separator to the container
         buttonContainer.appendChild(editBtn);
+        buttonContainer.appendChild(separator);
         buttonContainer.appendChild(deleteBtn);
         li.appendChild(buttonContainer);
         toDoBox.appendChild(li);

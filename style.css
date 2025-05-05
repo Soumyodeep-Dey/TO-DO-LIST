@@ -92,3 +92,34 @@ main {
     font-weight: 800;
     color: red;
 }
+
+/* Style for the button container */
+.button-container {
+    display: inline-flex; /* Align buttons horizontally */
+    align-items: center; /* Center align buttons vertically */
+    gap: 10px; /* Add spacing between buttons */
+}
+
+/* Style for the edit button */
+.edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: blue;
+    font-size: 16px;
+}
+
+/* Style for the delete button */
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 16px;
+}
+
+/* Style for the separator */
+.button-separator {
+    margin: 0 5px; /* Add spacing around the separator */
+    color: gray;
+}
