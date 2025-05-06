@@ -37,14 +37,33 @@ document.addEventListener('DOMContentLoaded', () => {
         editBtn.classList.add("edit-btn");
         editBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            if (todo.completed) return; // Prevent editing if completed
+            if (todo.completed) return;
 
-            const newText = prompt("Edit the task:", todo.text);
-            if (newText !== null && newText.trim() !== "") {
-                todo.text = newText;
-                textSpan.textContent = newText;
-                save();
-            }
+            // Create input field and replace the span
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = todo.text;
+            input.style.flex = "1";
+            li.replaceChild(input, textSpan);
+            input.focus();
+
+            // Save changes on blur or Enter key
+            const saveEdit = () => {
+                const newText = input.value.trim();
+                if (newText) {
+                    todo.text = newText;
+                    textSpan.textContent = newText;
+                    save();
+                }
+                li.replaceChild(textSpan, input); // Restore the span
+            };
+
+            input.addEventListener("blur", saveEdit);
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    saveEdit();
+                }
+            });
         });
 
         // Add a separator between buttons
