@@ -192,3 +192,30 @@ main {
     font-weight: bold;
     /* Make the separator more prominent */
 }
+
+.footer {
+    text-align: center;
+    padding: 15px 10px;
+    background: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent for readability */
+    color: #ccc;
+    font-size: 14px;
+    position: relative;
+    /* change to fixed or sticky if you want it always visible */
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    /* Optional: glass effect */
+}
+
+.footer a {
+    color: #00c4ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
