@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         editBtn.classList.add("edit-btn");
         editBtn.addEventListener("click", (e) => {
             e.stopPropagation();
+            if (todo.completed) return; // Prevent editing if completed
+
             const newText = prompt("Edit the task:", todo.text);
             if (newText !== null && newText.trim() !== "") {
                 todo.text = newText;
@@ -65,8 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
         li.addEventListener("click", () => {
             todo.completed = !todo.completed; // Toggle the completed status
             li.classList.toggle("done"); // Toggle the "done" class
+
+            // Disable edit button if completed, enable if not
+            if (todo.completed) {
+                editBtn.disabled = true;
+                editBtn.classList.add("disabled");
+            } else {
+                editBtn.disabled = false;
+                editBtn.classList.remove("disabled");
+            }
+
             save(); // Save the updated tasks to localStorage
         });
+
 
         toDoBox.appendChild(li);
     };

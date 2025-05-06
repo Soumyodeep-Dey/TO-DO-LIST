@@ -67,18 +67,25 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #f8f9fa; /* Light background for better contrast */
-    color: #343a40; /* Darker text color */
-    border: 1px solid #dee2e6; /* Add a subtle border */
+    background-color: #f8f9fa;
+    /* Light background for better contrast */
+    color: #343a40;
+    /* Darker text color */
+    border: 1px solid #dee2e6;
+    /* Add a subtle border */
     border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.2s ease; /* Add hover effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    transition: transform 0.2s ease;
+    /* Add hover effect */
 }
 
 #to-do-box li:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-    background-color: #e9ecef; /* Slightly darker background on hover */
+    transform: scale(1.02);
+    /* Slightly enlarge on hover */
+    background-color: #e9ecef;
+    /* Slightly darker background on hover */
 }
 
 #to-do-box li i {
@@ -89,11 +96,16 @@ main {
 
 /* Style for completed tasks */
 .done {
-    text-decoration: line-through; /* Strike-through text */
-    color: gray; /* Dim the text color */
-    background-color: #e0e0e0; /* Light gray background for completed tasks */
-    font-style: italic; /* Optional: make the text italic for emphasis */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for visual changes */
+    text-decoration: line-through;
+    /* Strike-through text */
+    color: gray;
+    /* Dim the text color */
+    background-color: #e0e0e0;
+    /* Light gray background for completed tasks */
+    font-style: italic;
+    /* Optional: make the text italic for emphasis */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition for visual changes */
 }
 
 #title {
@@ -106,50 +118,77 @@ main {
 
 /* Style for the button container */
 .button-container {
-    display: inline-flex; /* Align buttons horizontally */
-    align-items: center; /* Center align buttons vertically */
-    gap: 5px; /* Add spacing between buttons */
-    font-size: 14px; /* Adjust font size for better readability */
+    display: inline-flex;
+    /* Align buttons horizontally */
+    align-items: center;
+    /* Center align buttons vertically */
+    gap: 5px;
+    /* Add spacing between buttons */
+    font-size: 14px;
+    /* Adjust font size for better readability */
 }
 
 /* Style for the edit button */
 .edit-btn {
-    background-color: #007bff; /* Blue background */
+    background-color: #007bff;
+    /* Blue background */
     border: none;
-    color: white; /* White text */
+    color: white;
+    /* White text */
     font-size: 14px;
-    padding: 5px 10px; /* Add padding for button-like appearance */
-    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px;
+    /* Add padding for button-like appearance */
+    border-radius: 5px;
+    /* Rounded corners */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Smooth hover effect */
 }
 
 .edit-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #0056b3;
+    /* Darker blue on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge on hover */
 }
+
+.edit-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 
 /* Style for the delete button */
 .delete-btn {
-    background-color: #dc3545; /* Red background */
+    background-color: #dc3545;
+    /* Red background */
     border: none;
-    color: white; /* White text */
+    color: white;
+    /* White text */
     font-size: 14px;
-    padding: 5px 10px; /* Add padding for button-like appearance */
-    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px;
+    /* Add padding for button-like appearance */
+    border-radius: 5px;
+    /* Rounded corners */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Smooth hover effect */
 }
 
 .delete-btn:hover {
-    background-color: #a71d2a; /* Darker red on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #a71d2a;
+    /* Darker red on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge on hover */
 }
 
 /* Style for the separator */
 .button-separator {
-    margin: 0 5px; /* Add spacing around the separator */
-    color: #6c757d; /* Neutral gray color */
+    margin: 0 5px;
+    /* Add spacing around the separator */
+    color: #6c757d;
+    /* Neutral gray color */
     font-size: 14px;
-    font-weight: bold; /* Make the separator more prominent */
+    font-weight: bold;
+    /* Make the separator more prominent */
 }
