@@ -12,7 +12,7 @@
 <body>
     <main>
         <div class="box">
-            <h1 id="title">YOU HAVE TO DO THESE WITHIN TODAY</h1>
+            <h1 id="title">YOU HAVE TO DO THESE WITHIN TODAY (<span id="current-date"></span>)</h1>
             <div class="input-container">
                 <input type="text" id="item" autofocus placeholder="Write something here...">
                 <button id="add-new-task">ADD task</button>
@@ -28,6 +28,11 @@
        
     <script src="https://kit.fontawesome.com/bf520e6492.js" crossorigin="anonymous"></script>
        
+    <script>
+        // Add current date to the title
+        const currentDate = new Date().toLocaleDateString();
+        document.getElementById('current-date').textContent = currentDate;
+    </script>
     <script src="app.js"></script>
 </body>
 
