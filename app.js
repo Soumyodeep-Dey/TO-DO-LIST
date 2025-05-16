@@ -108,10 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
         display(todo);
     });
 
-    // Add a new task
-    ADD.addEventListener('click', () => {
+    // Function to add a new task
+    function addTask() {
         const TaskText = item.value.trim();
-
         if (TaskText === "") return; // Prevent empty tasks
 
         const NewTask = {
@@ -124,6 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
         save(); // Save tasks to localStorage
         item.value = ""; // Clear input field
         display(NewTask); // Display the new task
+    }
+
+    // Add task on button click
+    ADD.addEventListener('click', addTask);
+
+    // Add task on Enter key press
+    item.addEventListener('keydown', (e) => {
+        if (e.key === "Enter") {
+            addTask();
+        }
     });
 
     // Save tasks to localStorage
